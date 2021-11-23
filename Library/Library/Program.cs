@@ -24,7 +24,7 @@ namespace Library
             "   -add [path to json file containing book model]",
             "   -take [holder] [time from] [time to] [isbn]",
             "   -return [holder] [time from] [time to] [isbn]",
-            "   -filter (with optional arguments specified below)",
+            "   -list (with optional arguments specified below)",
             "       author=[author]",
             "       category=[category]",
             "       language=[language]",
@@ -90,7 +90,7 @@ namespace Library
                         Console.Out.WriteLine($"{book} successfully returned and {reservation} is removed.");
                         break;
 
-                    case "-filter":
+                    case "-list":
                         Console.Out.WriteLine(string.Join(Environment.NewLine, Repository.Filter(parameters)));
                         break;
 
