@@ -22,11 +22,13 @@ A list of commands and their parameters.
 * **`-take`** `[holder] [time from : yyyy-mm-dd] [time to : yyyy-mm-dd] [isbn]` 
 
   Creates issue record and takes book by `[isbn]` from library.
-
-  Taking a book for longer than 2 months duration is not allowed.
+  
+  Taking more than 3 books per person is not allowed, neither is leasing a book for longer than 2 months.
 * **`-return`** `[time from : yyyy-mm-dd] [time to : yyyy-mm-dd] [isbn]`
   
   Returns the book when provided with the same parameters as in **`-take`** command.
+  
+  And yes, the application is aware of late returns.
 * **`-list`** lists books filtered using any number optional parameters below:
   * `author=[author]`
   * `category=[category]`
@@ -72,6 +74,12 @@ A list of commands and their parameters.
   ```
   Book { Name = Random Book, Author = Randy, Category = Parody, Language = French, PublicationDate = 6/26/2008 12:00:00 AM, ISBN = 471658197-X, Amount = 1 } issued successfully.
   ```
+  
+  In case the same person has leased 3 books and is trying to take 4th one:
+  ```
+  Library.ConsoleException: A single person can have no more than 3 books at once! Please return one of them.
+  ...
+  ```
 
 * **`-return`**
 
@@ -80,6 +88,12 @@ A list of commands and their parameters.
   Output:
   ```
   Book { Name = Random Book, Author = Randy, Category = Parody, Language = French, PublicationDate = 6/26/2008 12:00:00 AM, ISBN = 471658197-X, Amount = 1 } successfully returned and Issue { Holder = John smith, From = 11/23/2022 12:00:00 AM, To = 12/20/2022 12:00:00 AM, ISBN = 471658197-X } is removed.
+  ```
+  
+  In case the return is late the normal output is prepended with:
+  ```
+  Aren't we cheeky?
+  ...
   ```
 
 * **`-list`**
