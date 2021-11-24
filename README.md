@@ -24,7 +24,7 @@ A list of commands and their parameters.
   Creates issue record and takes book by `[isbn]` from library.
   
   Taking more than 3 books per person is not allowed, neither is leasing a book for longer than 2 months.
-* **`-return`** `[time from : yyyy-mm-dd] [time to : yyyy-mm-dd] [isbn]`
+* **`-return`** `[holder] [time from : yyyy-mm-dd] [time to : yyyy-mm-dd] [isbn]`
   
   Returns the book when provided with the same parameters as in **`-take`** command.
   
@@ -43,7 +43,7 @@ A list of commands and their parameters.
     * if `false` - the amount of free remaining copies in the library
 * **`-delete`** `[isbn] [amount : int]`
 
-  Updates the amount of books with `[isbn]` accordingly, if there are no issues of said book and it's amount reaches 0 - it's deleted entirely and can only be reintroduced using **`-add`** command.
+  Updates the amount of books with `[isbn]` accordingly, if no one is leasing said book and it's amount reaches 0 - it's deleted entirely and can only be reintroduced using **`-add`** command.
 * **`-help`**
 
 ## Examples
