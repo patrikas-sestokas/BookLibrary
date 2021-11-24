@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Update="Books.json">
+        <None Update="Data.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>

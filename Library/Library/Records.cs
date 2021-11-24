@@ -14,5 +14,5 @@ namespace Library
         public override int GetHashCode() => ISBN.GetHashCode();
     }
     public sealed record Issue(string Holder, DateTime From, DateTime To, string ISBN);
-    sealed record Repository(HashSet<Book> Books, List<Issue> Reservations);
+    sealed record Repository(HashSet<Book> Books, List<Issue> Issues);
 }

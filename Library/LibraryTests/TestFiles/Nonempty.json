@@ -91,7 +91,7 @@
       "Amount": 2
     }
   ],
-  "Reservations": [
+  "Issues": [
     {
       "Holder": "Augustus McBean",
       "From": "2021-02-12T00:00:00",

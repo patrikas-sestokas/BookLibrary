@@ -42,10 +42,10 @@ namespace Library
         /// </exception>
         public Book Take(Issue issue)
         {
-            if(issue.To - issue.From > TimeSpan.FromDays(60))
+            if (issue.To - issue.From > TimeSpan.FromDays(60))
                 throw new ConsoleException("Cannot take a book for longer than 2 months.",
                     ErrorCode.UserError);
-            if(issue.To - issue.From < TimeSpan.Zero)
+            if (issue.To - issue.From < TimeSpan.Zero)
                 throw new ConsoleException("[From] and [To] are mixed up, resulting in negative duration.",
                     ErrorCode.UserError);
             if (!_repository.Books.TryGetValue(Book.Default with { ISBN = issue.ISBN }, out var book))
@@ -54,13 +54,13 @@ namespace Library
             if (book.Amount == 0)
                 throw new ConsoleException($"All copies of book with ISBN: {issue.ISBN} are already reserved!",
                     ErrorCode.InsufficientAmount);
-            if (_repository.Reservations.Count(r => r.Holder == issue.Holder) >= 3)
+            if (_repository.Issues.Count(r => r.Holder == issue.Holder) >= 3)
                 throw new ConsoleException(
                     "A single person can have no more than 3 books at once! Please return one of them.",
                     ErrorCode.UserError);
             _repository.Books.Remove(book);
             _repository.Books.Add(book with { Amount = book.Amount - 1 });
-            _repository.Reservations.Add(issue);
+            _repository.Issues.Add(issue);
             return book with { Amount = 1 };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Library
         /// </exception>
         public Book Return(Issue issue)
         {
-            var index = _repository.Reservations.IndexOf(issue);
+            var index = _repository.Issues.IndexOf(issue);
             if (index == -1)
                 throw new ConsoleException($"{issue} not found!", ErrorCode.ItemNotFound);
             if (!_repository.Books.TryGetValue(Book.Default with { ISBN = issue.ISBN }, out var book))
@@ -84,7 +84,7 @@ namespace Library
                     ErrorCode.ItemNotFound);
             _repository.Books.Remove(book);
             _repository.Books.Add(book with { Amount = book.Amount + 1 });
-            _repository.Reservations.RemoveAt(index);
+            _repository.Issues.RemoveAt(index);
             return book with { Amount = 1 };
         }
         /// <summary>
@@ -120,7 +120,7 @@ namespace Library
                     "issued" => bool.TryParse(value, out var reserved)
                         ? (reserved
                             ? books.Select(b =>
-                                b with { Amount = _repository.Reservations.Count(r => r.ISBN == b.ISBN) })
+                                b with { Amount = _repository.Issues.Count(r => r.ISBN == b.ISBN) })
                             : books)
                         .Where(b => b.Amount > 0)
                         : throw new ConsoleException(
@@ -134,8 +134,8 @@ namespace Library
             return books;
         }
         /// <summary>
-        /// Deletes the specified amount of books with specified ISBN.
-        /// If there are no reservations and amount of said book reaches 0 - it's deleted entirely.
+        ///     Deletes the specified amount of books with specified ISBN.
+        ///     If there are no reservations and amount of said book reaches 0 - it's deleted entirely.
         /// </summary>
         /// <param name="ISBN"></param>
         /// <param name="amount"></param>
@@ -153,14 +153,14 @@ namespace Library
                 throw new ConsoleException($"Not enough books with ISBN: {ISBN} remaining to satisfy the request.",
                     ErrorCode.InsufficientAmount);
             _repository.Books.Remove(book);
-            if (book.Amount > amount || _repository.Reservations.Any(r => r.ISBN == ISBN))
+            if (book.Amount > amount || _repository.Issues.Any(r => r.ISBN == ISBN))
                 _repository.Books.Add(book with { Amount = book.Amount - amount });
             return book with { Amount = amount };
         }
         public void Clear()
         {
             _repository.Books.Clear();
-            _repository.Reservations.Clear();
+            _repository.Issues.Clear();
         }
         public void WriteToFile() => File.WriteAllText(_file, JsonSerializer.Serialize(_repository, new()
         {

@@ -16,7 +16,7 @@ namespace Library
     }
     class Program
     {
-        const string MakeshiftDatabase = @".\Books.json";
+        const string MakeshiftDatabase = @".\Data.json";
         static readonly BookRepository Repository = new(MakeshiftDatabase);
         static readonly string[] Arguments =
         {
@@ -76,7 +76,7 @@ namespace Library
                         Issue issue = new(parameters[0], DateTime.Parse(parameters[1]),
                             DateTime.Parse(parameters[2]), parameters[3]);
                         book = Repository.Take(issue);
-                        Console.Out.WriteLine($"{book} successfully reserved.");
+                        Console.Out.WriteLine($"{book} issued successfully.");
                         break;
 
                     case "-return":

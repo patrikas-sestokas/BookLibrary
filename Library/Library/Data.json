@@ -1,0 +1,95 @@
+﻿{
+  "Books": [
+    {
+      "Name": "ornare consequat lectus in",
+      "Author": "Ozzie Feedham",
+      "Category": "Comedy",
+      "Language": "French",
+      "PublicationDate": "2008-06-26T00:00:00",
+      "ISBN": "479798297-7",
+      "Amount": 4
+    },
+    {
+      "Name": "lacinia aenean sit amet justo morbi ut",
+      "Author": "Jennine Borgnet",
+      "Category": "Drama|Thriller",
+      "Language": "Haitian Creole",
+      "PublicationDate": "2009-07-11T00:00:00",
+      "ISBN": "347158849-3",
+      "Amount": 3
+    },
+    {
+      "Name": "varius ut blandit",
+      "Author": "Kristine Dowyer",
+      "Category": "Drama",
+      "Language": "Korean",
+      "PublicationDate": "2018-12-11T00:00:00",
+      "ISBN": "655768873-1",
+      "Amount": 1
+    },
+    {
+      "Name": "integer tincidunt ante vel ipsum praesent blandit",
+      "Author": "Cecilia Cellier",
+      "Category": "Action|Adventure|Sci-Fi",
+      "Language": "Albanian",
+      "PublicationDate": "2011-11-20T00:00:00",
+      "ISBN": "184062694-1",
+      "Amount": 1
+    },
+    {
+      "Name": "tellus semper interdum mauris ullamcorper purus",
+      "Author": "Trent McEvilly",
+      "Category": "Comedy",
+      "Language": "Gagauz",
+      "PublicationDate": "2008-12-24T00:00:00",
+      "ISBN": "796312878-3",
+      "Amount": 2
+    },
+    {
+      "Name": "nunc nisl duis bibendum felis sed interdum venenatis",
+      "Author": "Kirstin Eversfield",
+      "Category": "Children|Comedy|Drama",
+      "Language": "Kazakh",
+      "PublicationDate": "2004-07-25T00:00:00",
+      "ISBN": "396089824-X",
+      "Amount": 2
+    },
+    {
+      "Name": "id ornare imperdiet sapien urna pretium",
+      "Author": "Redford Pitchers",
+      "Category": "Documentary",
+      "Language": "Malagasy",
+      "PublicationDate": "2001-04-24T00:00:00",
+      "ISBN": "362601535-1",
+      "Amount": 2
+    },
+    {
+      "Name": "congue elementum in hac habitasse platea dictumst",
+      "Author": "Ricky Laurens",
+      "Category": "Action",
+      "Language": "Dutch",
+      "PublicationDate": "2021-05-01T00:00:00",
+      "ISBN": "866658178-6",
+      "Amount": 2
+    },
+    {
+      "Name": "pharetra magna",
+      "Author": "Almeda Yellowley",
+      "Category": "Comedy",
+      "Language": "Tamil",
+      "PublicationDate": "2017-03-13T00:00:00",
+      "ISBN": "694782248-3",
+      "Amount": 5
+    },
+    {
+      "Name": "fermentum donec ut",
+      "Author": "Micheil Edelheit",
+      "Category": "Comedy",
+      "Language": "Bulgarian",
+      "PublicationDate": "2017-07-05T00:00:00",
+      "ISBN": "224298291-5",
+      "Amount": 2
+    }
+  ],
+  "Issues": []
+}
