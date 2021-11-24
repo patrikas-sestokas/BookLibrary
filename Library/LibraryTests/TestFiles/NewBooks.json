@@ -1,0 +1,92 @@
+[
+  {
+    "Name": "ut rhoncus aliquet pulvinar sed",
+    "Author": "Sutherlan Comazzo",
+    "Category": "Comedy|Drama|Thriller",
+    "Language": "Quechua",
+    "PublicationDate": "2000-03-31",
+    "ISBN": "569414949-1",
+    "Amount": 3
+  },
+  {
+    "Name": "ligula in",
+    "Author": "Libbie Jelf",
+    "Category": "Crime|Mystery",
+    "Language": "Filipino",
+    "PublicationDate": "2017-04-25",
+    "ISBN": "618408933-1",
+    "Amount": 5
+  },
+  {
+    "Name": "justo lacinia eget tincidunt eget tempus vel pede",
+    "Author": "Beatrisa Dosedale",
+    "Category": "Comedy|Drama",
+    "Language": "Aymara",
+    "PublicationDate": "2007-03-31",
+    "ISBN": "273184047-1",
+    "Amount": 2
+  },
+  {
+    "Name": "sed accumsan",
+    "Author": "Evangelia Sandey",
+    "Category": "Drama",
+    "Language": "Kashmiri",
+    "PublicationDate": "2021-06-10",
+    "ISBN": "447781950-1",
+    "Amount": 3
+  },
+  {
+    "Name": "iaculis justo in hac",
+    "Author": "Rhodia Willox",
+    "Category": "Comedy",
+    "Language": "Amharic",
+    "PublicationDate": "2010-01-17",
+    "ISBN": "134068211-7",
+    "Amount": 1
+  },
+  {
+    "Name": "vel sem sed sagittis",
+    "Author": "Mela Gilroy",
+    "Category": "Comedy",
+    "Language": "Indonesian",
+    "PublicationDate": "2016-04-26",
+    "ISBN": "720930189-5",
+    "Amount": 1
+  },
+  {
+    "Name": "at turpis",
+    "Author": "Fredrika Paddy",
+    "Category": "Drama",
+    "Language": "Belarusian",
+    "PublicationDate": "2019-08-13",
+    "ISBN": "745720360-5",
+    "Amount": 1
+  },
+  {
+    "Name": "sapien arcu sed augue",
+    "Author": "Petra Hallaways",
+    "Category": "Comedy",
+    "Language": "German",
+    "PublicationDate": "2008-07-26",
+    "ISBN": "069293110-4",
+    "Amount": 1
+  },
+  {
+    "Name": "turpis nec euismod scelerisque quam turpis adipiscing lorem",
+    "Author": "Nannie Kearle",
+    "Category": "Action|Fantasy|Thriller|IMAX",
+    "Language": "Lithuanian",
+    "PublicationDate": "2002-06-24",
+    "ISBN": "012280040-0",
+    "Amount": 2
+  },
+  {
+    "Name": "nibh in lectus",
+    "Author": "Haskell Sellan",
+    "Category": "Comedy",
+    "Language": "Kurdish",
+    "PublicationDate": "2019-09-05",
+    "ISBN": "955847477-0",
+    "Amount": 4
+  }
+]

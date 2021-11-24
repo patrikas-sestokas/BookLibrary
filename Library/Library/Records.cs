@@ -13,6 +13,6 @@ namespace Library
         public bool Equals(Book other) => other is not null && other.ISBN == ISBN;
         public override int GetHashCode() => ISBN.GetHashCode();
     }
-    public sealed record Reservation(string Holder, DateTime From, DateTime To, string ISBN);
-    sealed record Repository(HashSet<Book> Books, List<Reservation> Reservations);
+    public sealed record Issue(string Holder, DateTime From, DateTime To, string ISBN);
+    sealed record Repository(HashSet<Book> Books, List<Issue> Reservations);
 }

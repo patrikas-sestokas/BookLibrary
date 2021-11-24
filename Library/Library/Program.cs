@@ -22,16 +22,16 @@ namespace Library
         {
             "Expected arguments:",
             "   -add [path to json file containing book model]",
-            "   -take [holder] [time from] [time to] [isbn]",
-            "   -return [holder] [time from] [time to] [isbn]",
+            "   -take [holder] [time from : yyyy-mm-dd] [time to : yyyy-mm-dd] [isbn]",
+            "   -return [holder] [time from : yyyy-mm-dd] [time to : yyyy-mm-dd] [isbn]",
             "   -list (with optional arguments specified below)",
             "       author=[author]",
             "       category=[category]",
             "       language=[language]",
             "       isbn=[isbn]",
             "       name=[name]",
-            "       reserved=[true/false]",
-            "   -delete [isbn] [amount]",
+            "       issued=[true/false]",
+            "   -delete [isbn] [amount : int]",
             "   -help"
         };
         static IEnumerable<(string command, List<string> parameters)> ProcessArguments(string[] args)
@@ -73,21 +73,21 @@ namespace Library
                     case "-take":
                         if (parameters.Count < 4)
                             throw new ConsoleException($"Expected: {Arguments[2]}.", ErrorCode.TooFewArguments);
-                        Reservation reservation = new(parameters[0], DateTime.Parse(parameters[1]),
+                        Issue issue = new(parameters[0], DateTime.Parse(parameters[1]),
                             DateTime.Parse(parameters[2]), parameters[3]);
-                        book = Repository.Take(reservation);
-                        Console.Out.WriteLine();
+                        book = Repository.Take(issue);
+                        Console.Out.WriteLine($"{book} successfully reserved.");
                         break;
 
                     case "-return":
-                        if (parameters.Count < 1)
+                        if (parameters.Count < 4)
                             throw new ConsoleException($"Expected: {Arguments[3]}.", ErrorCode.TooFewArguments);
-                        reservation = new(parameters[0], DateTime.Parse(parameters[1]),
+                        issue = new(parameters[0], DateTime.Parse(parameters[1]),
                             DateTime.Parse(parameters[2]), parameters[3]);
-                        if (reservation.To < DateTime.Now)
+                        book = Repository.Return(issue);
+                        if (issue.To < DateTime.Now)
                             Console.Out.WriteLine("Aren't we cheeky?");
-                        book = Repository.Return(reservation);
-                        Console.Out.WriteLine($"{book} successfully returned and {reservation} is removed.");
+                        Console.Out.WriteLine($"{book} successfully returned and {issue} is removed.");
                         break;
 
                     case "-list":
@@ -97,10 +97,7 @@ namespace Library
                     case "-delete":
                         if (parameters.Count < 2)
                             throw new ConsoleException($"Expected: {Arguments[5]}.", ErrorCode.TooFewArguments);
-                        if (!int.TryParse(parameters[1], out var amount))
-                            throw new ConsoleException($"Can't parse \"{parameters[1]}\" into integer.",
-                                ErrorCode.UserError);
-                        book = Repository.Delete(parameters[0], amount);
+                        book = Repository.Delete(parameters[0], int.Parse(parameters[1]));
                         Console.Out.WriteLine($"Successfully removed {book}.");
                         break;
 
