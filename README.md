@@ -56,7 +56,7 @@ A list of commands and their parameters.
      "Category": "Parody",
      "Language": "French",
      "PublicationDate": "2008-06-26",
-     "ISBN": "471658197-X",
+     "ISBN": "471658197-X"
   }
   ```
   Property `Amount=[amount : int]` can also be added to specify how many copies said edition of book has. If it isn't provided - the default is 1.
