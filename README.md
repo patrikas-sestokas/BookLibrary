@@ -21,14 +21,14 @@ A list of commands and their parameters.
   Adds book from .json file to the library, if said book exists - updates it's amount.
 * **`-take`** `[holder] [time from : yyyy-mm-dd] [time to : yyyy-mm-dd] [isbn]` 
 
-  Creates issue record and takes book by `[isbn]` from library.
+  Creates lease record and takes book by `[isbn]` from library.
   
   Taking more than 3 books per person is not allowed, neither is leasing a book for longer than 2 months.
 * **`-return`** `[holder] [time from : yyyy-mm-dd] [time to : yyyy-mm-dd] [isbn]`
   
   Returns the book when provided with the same parameters as in **`-take`** command.
   
-  And yes, the application is aware of late returns.
+  The application is aware of late returns.
 * **`-list`** lists books filtered using any number optional parameters below:
   * `author=[author]`
   * `category=[category]`
@@ -61,7 +61,7 @@ A list of commands and their parameters.
      "ISBN": "471658197-X"
   }
   ```
-  Property `Amount=[amount : int]` can also be added to specify how many copies said edition of book has. If it isn't provided - the default is 1.
+  Property `"Amount"=[amount : int]` can also be added to specify how many copies said edition of book has. If it isn't provided - the default is 1.
 
   Output:
   ```
@@ -73,6 +73,12 @@ A list of commands and their parameters.
   `-take "John smith" 2022-11-23 2022-12-20 471658197-X`:
   ```
   Book { Name = Random Book, Author = Randy, Category = Parody, Language = French, PublicationDate = 6/26/2008 12:00:00 AM, ISBN = 471658197-X, Amount = 1 } issued successfully.
+  ```
+  
+  In case duration of the lease exceeds 2 months:
+  ```
+  Library.ConsoleException: Cannot take a book for longer than 2 months.
+  ...
   ```
   
   In case the same person has leased 3 books and is trying to take 4th one:
